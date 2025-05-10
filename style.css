@@ -1,62 +1,71 @@
-*,html{
+*,html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-main{
+/* 12ta ustunga bo'linadi gridda */
+
+main {
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr;
-    
-    grid-template-rows: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: 20px repeat(10, minmax(100px, 1fr)) 20px;
+    grid-template-areas: 
+    "... ... ... ... ... ... ... ... ... ... ... ..."
+    "... head head head head head head head head head head ..."
+    "... side side side sec1 sec1 sec1 sec1 sec1 sec1 sec1..."
+    "... side side side sec2 sec2 sec2 none sec3 sec3 sec3..."
+    "... foot foot foot foot foot foot foot foot foot foot..."
+    "... ... ... ... ... ... ... ... ... ... ... ..."
+    ;
     gap: 10px;
-    grid-template-columns: repeat(12, 1fr);
 }
 
-header{
+header {
+    grid-area: head;
     font-size: 35px;
     background-color: green;
     border: 2px solid black;
-    /* grid-column-start: 1;
-    grid-column-end: 3; */
-    /* grid-column: 1 / 13; */
-    /* grid-column: 1 / -1; */
-    grid-column: 1 / span 12;
+
 }
 
-aside{
+aside {
+    grid-area: side;
     font-size: 35px;
     background-color: blue;
     border: 2px solid black;
-    grid-column: 1/5;
-    grid-row-start: 2;
-    grid-row-end: 4;
 }
-.section1{
-    font-size: 35px;
-    background-color: pink;
-    border: 2px solid black;
-    grid-column: 5 / -1;
+
+.section1 {
+    grid-area: sec1;
     padding: 100px;
+    font-size: 35px;
+    background-color: red;
+    border: 2px solid black;
 }
 
-.section2{
+.section2 {
+    grid-area: sec2;
     font-size: 35px;
-    background-color: rgb(222, 38, 68);
+    background-color: darkcyan;
     border: 2px solid black;
-    grid-column: 5 / 9;
 }
 
-.section3{    
+.section3 {
     font-size: 35px;
-    background-color: rgb(255, 245, 192);
+    background-color: yellow;
     border: 2px solid black;
-    grid-column: 9 / -1;
+    grid-area: sec3;
 }
 
-footer{
+/* .section4 {
     font-size: 35px;
-    background-color: aqua;
+    background-color: blueviolet;
     border: 2px solid black;
-    grid-column: 1 / -1;
+} */
+
+
+footer {
+    font-size: 35px;
+    background-color: orchid;
+    border: 2px solid black;
+    grid-area:foot;
 }
